@@ -550,6 +550,33 @@ main {
  * #testimonials 
  */
 
+ .project-link {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link-text {
+  color: skyblue;
+  transition: color 0.3s ease;
+}
+
+.link-text:hover {
+  color: darkblue;
+}
+
+.screen-reader-text {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .testimonials { margin-bottom: 30px; }
 
 .testimonials-title { margin-bottom: 20px; }
