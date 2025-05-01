@@ -157,3 +157,28 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }   
+
+var flag = false;
+function checkFlag() {
+    if(flag === false) {
+        if ($('.contact-title').html() !== undefined || i > 30) {
+            flag = true;
+        }
+       window.setTimeout(checkFlag, 100);
+    } else {
+        var elements = document.getElementsByClassName("copyabletext");
+
+        var myFunction = function() {
+            console.log("Clicked");
+            navigator.clipboard.writeText(this.innerText)
+            $.notify("Copied to clipboard", "success");
+        };
+
+        for (var i = 0; i < elements.length; i++) {
+        elements[i].addEventListener('click', myFunction, false);
+            
+    }
+    }
+}
+
+checkFlag();
