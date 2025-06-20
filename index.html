@@ -1,429 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="https://i.redd.it/n4fzj627fxp31.jpg" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!--
-    - for copyable links
-  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.min.css" integrity="sha512-PlmS4kms+fh6ewjUlXryYw0t4gfyUBrab9UB0vqOojV26QKvUT9FqBJTRReoIZ7fO8p0W/U9WFSI4MAdI1Zm+A==" crossorigin="anonymous" />
-  
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portFolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* Dark Gray */
+            color: #F3F4F6; /* Light Gray */
+        }
+        .accent-color {
+            color: #38BDF8; /* Sky Blue */
+        }
+        .bg-accent-color {
+            background-color: #38BDF8;
+        }
+        .bg-secondary {
+            background-color: #1F2937; /* Gray */
+        }
+        .border-secondary {
+            border-color: #374151; /* Darker Gray */
+        }
+        .transition-all-300 {
+            transition: all 0.3s ease-in-out;
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
+<body class="antialiased">
 
-<body>
-
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Kessen" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Kessen">Kessen Ky</h1>
-
-          <p class="title">Web developer | Software Developer </p>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-opacity-80 backdrop-blur-md border-b border-secondary">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tight">Alex Doe</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="hover:text-accent-color transition-all-300">About</a>
+                <a href="#projects" class="hover:text-accent-color transition-all-300">Projects</a>
+                <a href="#contact" class="hover:text-accent-color transition-all-300">Contact</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block bg-accent-color text-gray-900 font-bold py-2 px-6 rounded-lg hover:bg-opacity-80 transition-all-300">Hire Me</a>
+             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
         </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#about" class="block py-2 px-4 text-sm hover:bg-secondary">About</a>
+            <a href="#projects" class="block py-2 px-4 text-sm hover:bg-secondary">Projects</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-secondary">Contact</a>
+        </div>
+    </header>
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-4">
+                    A <span class="accent-color">Web & Software Developer</span>
+                </h1>
+                <a href="#projects" class="bg-accent-color text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-opacity-80 transition-all-300 text-lg">
+                    View My Work
+                </a>
             </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="kessenkymalacas@gmail.com" class="contact-link">kessenkymalacas@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+63 9199011793" class="contact-link">+63 9199011793</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1982-06-23">December 1, 2006</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Midsayap, North Cotabato, Philippines</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-           Hey there! I'm a student currently immersing myself in the field of Computer Science, although I may be at the beginning stages of my journey I am determined, hardworking and always ready to learn.
-
-fun fact; I am Japanese-Filipino and speaks English, Tagalog, Japanese(Relearning)
-          <p>
-            I'm still in the midst of learning More Languages for me to get ready for my course and in the future!
-          </p>
         </section>
 
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What i'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
-
-                <p class="service-item-text">
-                  I take pictures as a hobby and i really love it!!
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web development</h4>
-
-                <p class="service-item-text">
-                  As of now i make pretty personal websites.
-                </p>
-              </div>
-
-            </li>
-
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - My Socials
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">my socials</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/facebook.png" alt="FB" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Facebook</h4>
-
-                <p class="service-item-text">
-                  <a href="https://www.facebook.com/Kessen.Kai.Marakasu/" target="_blank" style="color:skyblue">Kessen Ky</a>
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/instagram.png" alt="IG" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">instagram</h4>
-
-                <p class="service-item-text">
-                  <a href="https://www.instagram.com/iceuni1_/" target="_blank" style="color:skyblue">iceuni1_</a>
-                </p>
-              </div>
-
-            </li>
-
-          </li>
-
-          <li class="service-item">
-
-            <div class="service-icon-box">
-              <img src="./assets/images/linkedin.png" alt="linkedin" width="40">
-            </div>
-
-            <div class="service-content-box">
-              <h4 class="h4 service-item-title">LinkedIn</h4>
-
-              <p class="service-item-text">
-                <a href="https://www.linkedin.com/in/kessen-ky-malacas-1751012b5/" target="_blank" style="color:skyblue">Kessen Ky</a>
-              </p>
-            </div>
-
-          </li>
-
-        <li class="service-item">
-
-          <div class="service-icon-box">
-            <img src="./assets/images/github.png" alt="github" width="40">
-          </div>
-
-          <div class="service-content-box">
-            <h4 class="h4 service-item-title">Github</h4>
-
-            <p class="service-item-text">
-              <a href="https://github.com/koukichi7010" target="_blank" style="color:skyblue">koukichi7010</a>(Made0fB1naries)
-            </p>
-          </div>
-
-        </li>
-
-
-          </ul>
-
-        </section>
-
-
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Projects:</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Project" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>This Portfolio</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    This Website serves as my Portfolio for the future, and my future projects will be found here.
-                  </p>
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32 bg-secondary">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                    <div class="md:col-span-1">
+                        <img src="https://placehold.co/400x400/38BDF8/111827?text=Alex" alt="Alex Doe Portrait" class="rounded-full shadow-lg mx-auto w-64 h-64 md:w-80 md:h-80 object-cover">
+                    </div>
+                    <div class="md:col-span-2">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">About Me</h2>
+                        <p class="text-gray-400 mb-4">
+                            Hey there! I'm a student currently immersing myself in the field of Computer Science, although I may be at the beginning stages of my journey I am determined, hardworking and always ready to learn. fun fact; I am Japanese-Filipino and speaks English, Tagalog, Japanese(Relearning)
+                        </p>
+                        <p class="text-gray-400 mb-6">
+                            I'm still in the midst of learning More Languages for me to get ready for my course and in the future!
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-gray-700 hover:bg-accent-color hover:text-gray-900 transition-all-300 py-2 px-4 rounded-lg text-sm">Download Resume</a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
 
-              </div>
-            </li>
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold">My Projects</h2>
+                    <p class="text-lg text-gray-400 mt-2">A selection of my recent work.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="bg-secondary rounded-lg overflow-hidden shadow-lg group project-card">
+                        <div class="relative overflow-hidden">
+                            <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Project+One" alt="Project One" class="w-full h-60 object-cover transition-transform duration-500 ease-in-out group-hover:scale-105">
+                            <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 project-overlay flex items-center justify-center p-4">
+                               <a href="#" class="text-white border border-white py-2 px-4 rounded-lg hover:bg-white hover:text-black transition-all-300">View Project</a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">My portfolio (Now V2!!)</h3>
+                            <p class="text-gray-400 text-sm mb-4">I Made my first portfolio during the early 2024, now im going back and get a fresh start at modern web development.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">HTML</span>
+                                <span class="bg-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="bg-secondary rounded-lg overflow-hidden shadow-lg group project-card">
+                        <div class="relative overflow-hidden">
+                             <img src="https://placehold.co/600x400/38BDF8/111827?text=Project+Two" alt="Project Two" class="w-full h-60 object-cover transition-transform duration-500 ease-in-out group-hover:scale-105">
+                             <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 project-overlay flex items-center justify-center p-4">
+                               <a href="#" class="text-white border border-white py-2 px-4 rounded-lg hover:bg-white hover:text-black transition-all-300">View Project</a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Pathfinder</h3>
+                            <p class="text-gray-400 text-sm mb-4">I built Pathfinder as a central hub for connecting with me and my fellow collaborators. Our passion lies in crafting innovative and impactful websites, and we believe in the power of collaboration to achieve truly exceptional results. Through Pathfinder, we hope to streamline the process for potential clients seeking our expertise. By reaching out here, you'll gain a direct line to our collective talent, ensuring we can tailor our services to perfectly suit your vision. As it is just a protoype of what it will become, it still is the first step of creating a better one!!</p>
+                             <div class="flex flex-wrap gap-2">
+                                <span class="bg-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">HTML</span>
+                                <span class="bg-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">CSS</span>
+                                <span class="bg-gray-700 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+        </section>
 
-            <li class="testimonials-item">
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 bg-secondary">
+            <div class="container mx-auto px-6 text-center">
+                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Connect</h2>
+                 <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+                     I'm currently not available for freelance nor work in creating projects and full-time opportunities.
+                 </p>
+                 <a href="mailto:hello@alexdoe.com" class="inline-block bg-accent-color text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-opacity-80 transition-all-300 text-lg">
+                    kessenkymalacas@gmail.com
+                </a>
 
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Project2" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title> <a href="https://koukichi7010.github.io/New-Website/" target="_blank" class="project-link" style="color:skyblue">Pathfinder</a></h4>
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    I built Pathfinder as a central hub for connecting with me and my fellow collaborators. Our passion lies in crafting innovative and impactful websites, and we believe in the power of collaboration to achieve truly exceptional results. Through Pathfinder, we hope to streamline the process for potential clients seeking our expertise. By reaching out here, you'll gain a direct line to our collective talent, ensuring we can tailor our services to perfectly suit your vision.
-                    As it is just a protoype of what it will become, it still is the first step of creating a better one!!
+                <div class="mt-12 flex justify-center space-x-6">
+                    <a href="https://github.com/koukichi7010" class="text-gray-400 hover:text-accent-color transition-all-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12.013c0 4.418 2.865 8.167 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12.013C22 6.477 17.523 2 12 2z" clip-rule="evenodd" /></svg>
                     </a>
-                  </p>
+                     <a href="https://www.instagram.com/iceuni1_/" class="text-gray-400 hover:text-accent-color transition-all-300">
+                        <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+    </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kessen-ky-malacas-1751012b5/" class="text-gray-400 hover:text-accent-color transition-all-300">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.206v4.248H8.014V8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.718zM6.882 7.421a1.59 1.59 0 110-3.18 1.59 1.59 0 010 3.18zM8.266 16.338H5.498V8.59h2.768v7.748zM17.65 2H6.348A4.348 4.348 0 002 6.348v11.304A4.348 4.348 0 006.348 22h11.304A4.348 4.348 0 0022 17.652V6.348A4.348 4.348 0 0017.65 2z" clip-rule="evenodd" /></svg>
+                    </a>
                 </div>
-                
-              </div>
-            </li>
-        <section>
+            </div>
+        </section>
 
-          <!--
-         - testimonials modal
-       -->
+    </main>
 
-       <div class="modal-container" data-modal-container>
+    <!-- Footer -->
+    <footer class="border-t border-secondary">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; 2025 Alex Doe. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-         <div class="overlay" data-overlay></div>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-         <section class="testimonials-modal">
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-           <button class="modal-close-btn" data-modal-close-btn>
-             <ion-icon name="close-outline"></ion-icon>
-           </button>
-
-           <div class="modal-img-wrapper">
-             <figure class="modal-avatar-box">
-               <img src="./assets/images/avatar-1.png" alt="Project" width="80" data-modal-img>
-             </figure>
-
-             <img src="./assets/images/icon-quote.svg" alt="quote icon">
-           </div>
-
-           <div class="modal-content">
-
-            <h4 class="h3 modal-title" data-modal-title>Portfolio</h4>
-
-            <div data-modal-text>
-              <p>
-
-              </p>
-
-      </div>
-
-       </section>
-
-       <div class="modal-container" data-modal-container>
-
-        <div class="overlay" data-overlay></div>
-
-        <section class="testimonials-modal">
-
-          <button class="modal-close-btn" data-modal-close-btn>
-            <ion-icon name="close-outline"></ion-icon>
-          </button>
-
-          <div class="modal-img-wrapper">
-            <figure class="modal-avatar-box">
-              <img src="./assets/images/avatar-1.png" alt="Project2" width="80" data-modal-img>
-            </figure>
-
-            <img src="./assets/images/icon-quote.svg" alt="quote icon">
-          </div>
-
-          <div class="modal-content">
-
-           <h4 class="h3 modal-title" data-modal-title>Pathfinder</h4>
-
-           <div data-modal-text>
-             <p>
-
-             </p>
-
-       </section>
-
-     </div>
-
-      </section>
-
-  <!--
-    - for copyable links
-  -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js" integrity="sha512-efUTj3HdSPwWJ9gjfGR71X9cvsrthIA78/Fvd/IN+fttQVy7XWkOAXb295j8B3cmm/kFKVxjiNYzKw9IQJHIuQ==" crossorigin="anonymous"></script>
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  
+        // Close mobile menu when a link is clicked
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let i = 0; i < mobileMenuLinks.length; i++) {
+            mobileMenuLinks[i].addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+    </script>
 </body>
-
 </html>
