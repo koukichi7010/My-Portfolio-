@@ -11,23 +11,29 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111827; /* Dark Gray */
+            background-color: #000000; /* Black */
             color: #F3F4F6; /* Light Gray */
         }
         .accent-color {
-            color: #38BDF8; /* Sky Blue */
+            color: #FFFFFF; /* White */
         }
         .bg-accent-color {
-            background-color: #38BDF8;
+            background-color: #FFFFFF; /* White */
         }
         .bg-secondary {
-            background-color: #1F2937; /* Gray */
+            background-color: #000000; /* Black */
         }
         .border-secondary {
-            border-color: #374151; /* Darker Gray */
+            border-color: #374151; /* Dark Gray */
         }
         .transition-all-300 {
             transition: all 0.3s ease-in-out;
+        }
+        .project-card {
+            transition: transform 0.3s ease-in-out;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
         }
         .project-card:hover .project-overlay {
             opacity: 1;
@@ -36,12 +42,52 @@
         .project-card:hover img {
             transform: scale(1.05);
         }
+
+        /* Full-page scroll styles */
+        html, body {
+            height: 100%;
+            overflow: hidden; /* Prevent default body scroll */
+        }
+        #scroll-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+        .scroll-section {
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.8s ease-out;
+        }
+        .scroll-section.is-visible {
+            opacity: 1;
+        }
+
+        /* Animation Styles */
+        #header {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .header-hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-100%);
+        }
+        .nav-active {
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 2px;
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <!-- Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-opacity-80 backdrop-blur-md border-b border-secondary">
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-opacity-80 backdrop-blur-md border-b border-secondary">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold tracking-tight">Kessen Ky</a>
             <nav class="hidden md:flex space-x-8">
@@ -66,21 +112,21 @@
         </div>
     </header>
 
-    <main>
+    <div id="scroll-container">
         <!-- Hero Section -->
-        <section id="hero" class="min-h-screen flex items-center">
+        <section id="hero" class="scroll-section">
             <div class="container mx-auto px-6 text-center">
                 <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-4">
                     A <span class="accent-color">Web & Software Developer</span>
                 </h1>
-                <a href="#projects" class="bg-accent-color text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-opacity-80 transition-all-300 text-lg">
-                    View My Work
+                <a href="#about" class="bg-accent-color text-gray-900 font-bold py-4 px-8 rounded-lg hover:bg-opacity-80 transition-all-300 text-lg">
+                    About me
                 </a>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-20 md:py-32 bg-secondary">
+        <section id="about" class="scroll-section bg-secondary">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
                     <div class="md:col-span-1">
@@ -103,7 +149,7 @@
         </section>
         
 <!-- Certificates Section -->
-<section id="certificates" class="py-20 md:py-32 bg-secondary">
+<section id="certificates" class="scroll-section bg-secondary">
     <div class="container mx-auto px-6">
         <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold">My Certificates</h2>
@@ -172,7 +218,7 @@
 </section>
         
         <!-- Projects Section -->
-        <section id="projects" class="py-20 md:py-32">
+        <section id="projects" class="scroll-section">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold">My Projects</h2>
@@ -180,9 +226,9 @@
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project 1 -->
-<div class="bg-secondary rounded-lg overflow-hidden shadow-lg group project-card">
+<div class="bg-secondary rounded-lg overflow-hidden shadow-lg group project-card border border-secondary">
     <div class="relative overflow-hidden">
-        <img src="https://placehold.co/600x400/1F2937/FFFFFF?text=Project+One" alt="Project One" class="w-full h-60 object-cover transition-transform duration-500 ease-in-out group-hover:scale-105">
+        <img src="https://placehold.co/600x400/000000/FFFFFF?text=Project+One" alt="Project One" class="w-full h-60 object-cover transition-transform duration-500 ease-in-out group-hover:scale-105">
         <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 project-overlay flex items-center justify-center p-4">
             <a href="https://kessenky.pages.dev/" target="_blank" rel="noopener noreferrer" 
                class="text-white border border-white py-2 px-4 rounded-lg hover:bg-white hover:text-black transition-all-300">
@@ -201,9 +247,9 @@
 </div>
 
 <!-- Project 2 -->
-<div class="bg-secondary rounded-lg overflow-hidden shadow-lg group project-card">
+<div class="bg-secondary rounded-lg overflow-hidden shadow-lg group project-card border border-secondary">
     <div class="relative overflow-hidden">
-        <img src="https://placehold.co/600x400/38BDF8/111827?text=Project+Two" alt="Project Two" class="w-full h-60 object-cover transition-transform duration-500 ease-in-out group-hover:scale-105">
+        <img src="https://placehold.co/600x400/FFFFFF/000000?text=Project+Two" alt="Project Two" class="w-full h-60 object-cover transition-transform duration-500 ease-in-out group-hover:scale-105">
         <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 project-overlay flex items-center justify-center p-4">
             <a href="https://koukichi7010.github.io/Pathfinder/" target="_blank" rel="noopener noreferrer"
                class="text-white border border-white py-2 px-4 rounded-lg hover:bg-white hover:text-black transition-all-300">
@@ -225,7 +271,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-20 md:py-32 bg-secondary">
+        <section id="contact" class="scroll-section bg-secondary">
             <div class="container mx-auto px-6 text-center">
                  <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Connect</h2>
                  <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
@@ -251,14 +297,13 @@
             </div>
         </section>
 
-    </main>
-
-    <!-- Footer -->
-    <footer class="border-t border-secondary">
-        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
-            <p>&copy; 2025 kessen Ky. All Rights Reserved.</p>
-        </div>
-    </footer>
+        <!-- Footer -->
+        <footer class="scroll-section border-t border-secondary">
+            <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+                <p>&copy; 2025 kessen Ky. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
 
     <script>
         // Mobile menu toggle
@@ -276,6 +321,58 @@
                 mobileMenu.classList.add('hidden');
             });
         }
+
+        // Scroll Animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('header');
+            const sections = document.querySelectorAll('.scroll-section');
+            const heroSection = document.getElementById('hero');
+            const navLinks = document.querySelectorAll('nav a');
+
+            const observerOptions = {
+                root: document.getElementById('scroll-container'),
+                rootMargin: '0px',
+                threshold: 0.5 // Trigger when 50% of the section is visible
+            };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+
+                        // Update nav link highlighting
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('nav-active');
+                            if (link.getAttribute('href') === `#${id}`) {
+                                link.classList.add('nav-active');
+                            }
+                        });
+
+                    } else {
+                        entry.target.classList.remove('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
+            // Observer for the header visibility
+            const headerObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Hide header on hero section, show on others
+                    if (entry.isIntersecting) {
+                        header.classList.add('header-hidden');
+                    } else {
+                        header.classList.remove('header-hidden');
+                    }
+                });
+            }, { root: document.getElementById('scroll-container'), threshold: 0.5 });
+
+            headerObserver.observe(heroSection);
+        });
     </script>
 </body>
 </html>
